@@ -10,7 +10,7 @@ MODEL = "llama3-70b-8192"
 load_dotenv ()
 client = Groq()
 
-# Centered layout in a narrow “phone” width
+
 st.set_page_config(layout="centered", page_title="Hakim AI Companion")
 
 # load and encode
@@ -156,11 +156,11 @@ def groq_reply(prompt: str):
         inputs=[{"role": "user", "content": prompt}],
         parameters={"temperature":0.7}
     )
-    # depending on client version, path may vary slightly:
+
     return resp.choices[0].message["content"]
 # ------------------------------------------
 
-# 3) Chat history container
+
 history_container = st.container()
 # ————— CHAT SETUP ——————————————————————
 if "messages" not in st.session_state:
@@ -185,10 +185,10 @@ def send():
     for f in files:
         st.session_state.messages.append({"role":"user","text":f"📎 Uploaded file: {f.name}"})
 
-    # thinking…# 2) Create a dedicated placeholder (not your history_container)
+    
     thinking_placeholder = st.empty()
     thinking_bubble = thinking_placeholder.chat_message("assistant")
-   # 3) Animate “thinking…”
+#Animate “thinking…”
     for dots in ["", ".", "..", "..."] * 2:
         thinking_bubble.write(f"🤖 thinking{dots}")
         time.sleep(0.2)
