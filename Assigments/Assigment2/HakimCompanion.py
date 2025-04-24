@@ -57,7 +57,7 @@ if st.sidebar.button("⚙️ Settings"):
 if st.sidebar.button("🚪 Logout"):
     st.warning("You’ve been logged out. 👋")
 #--------------------------
-# 2) Define your available models
+# available models
 MODEL_OPTIONS = [
     "mannat-2.1-beta",
     "llama3-70b-8192",
@@ -67,11 +67,11 @@ MODEL_OPTIONS = [
     "whisper-large-v3"
 ]
 
-# 3) Use session_state to persist the choice across reruns
+#session_state to persist the choice across reruns
 if "model" not in st.session_state:
     st.session_state.model = MODEL_OPTIONS[0]
 
-# 4) Top bar: two columns, dropdown on the left, blank (or logo/title) on the right
+# Top bar: two columns, dropdown on the left, blank (or logo/title) on the right to display model
 col1, col2 = st.columns([1, 4], gap="small")
 with col1:
     st.session_state.model = st.selectbox(
@@ -79,7 +79,7 @@ with col1:
     )
 
 with col2:
-    # you can render your logo + title here if you like, or leave it blank
+   
     st.markdown("")  # placeholder
 #---------------------
 st.markdown(
@@ -129,16 +129,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# 2) Render the “phone” header
 
-#st.markdown(
- #   """
-  #  <div class="chat-header">
-   #   <h3 style="margin:0;">I’m your personalized companion!</h3>
-   # </div>
-   # """,
-   # unsafe_allow_html=True,
-#)
 htmlMain = f"""
 <div class="chat-header">
   <div style="display:flex; flex-direction:column; align-items:flex-start;">
@@ -226,7 +217,7 @@ with history_container:
         st.chat_message(msg["role"]).write(msg["text"])
 
 # ————— CHAT INPUT ——————————————————————
-# 1) Inject CSS to decorate the chat_input container
+
 
 st.chat_input(
     "How can I help you… or attach a file?",
