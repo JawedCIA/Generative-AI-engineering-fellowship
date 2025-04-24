@@ -14,7 +14,7 @@ client = Groq()
 st.set_page_config(layout="centered", page_title="Hakim AI Companion")
 
 # load and encode
-with open("HakimCompanion.png", "rb") as f:
+with open("Assigments/Assigment2/HakimCompanion.png", "rb") as f:
     data = base64.b64encode(f.read()).decode()
 
 htmlSidebar = f"""
