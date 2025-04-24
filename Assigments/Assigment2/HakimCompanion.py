@@ -2,7 +2,6 @@ import streamlit as st
 import base64
 import time
 from groq import Groq
-import os
 from dotenv import load_dotenv
 
 # ————— CONFIG ——————————————————————
